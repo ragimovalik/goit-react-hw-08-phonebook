@@ -1,0 +1,42 @@
+@value colors: '../../colors.css';
+@value bgcPrimary, darkened, text from colors;
+
+.Form__wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 390px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  border-radius: 5px;
+  background-color: bgcPrimary;
+}
+
+.Form__label {
+  font-style: italic;
+  color: text;
+  font-weight: 500;
+}
+
+.Form__input {
+  width: 270px;
+  height: 35px;
+  border: 1px solid darkened;
+  border-radius: 5px;
+  outline: none;
+
+  transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.Form__input:hover,
+.Form__input:focus {
+  border: 2px solid darkened;
+}
+
+.Form__input::placeholder {
+  padding: 0 5px;
+  font-size: 0.9rem;
+  font-style: italic;
+}

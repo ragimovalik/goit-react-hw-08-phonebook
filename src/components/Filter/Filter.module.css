@@ -1,0 +1,11 @@
+.Filter__wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Filter__title {
+  margin-bottom: 10px;
+  color: #252b31;
+}

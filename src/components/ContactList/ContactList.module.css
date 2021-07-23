@@ -1,0 +1,17 @@
+@value colors: '../../colors.css';
+@value bgcPrimary, text, lightened, red from colors;
+
+.ContactList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 380px;
+  padding: 10px;
+}
+
+.ContactList__title {
+  color: text;
+  margin-bottom: 10px;
+}

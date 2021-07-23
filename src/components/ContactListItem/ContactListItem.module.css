@@ -1,0 +1,45 @@
+@value colors: '../../colors.css';
+@value bgcPrimary, text, lightened, red from colors;
+
+.ContactList__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 370px;
+  padding: 5px;
+
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: text;
+  background-color: lightened;
+  border-radius: 20px;
+
+  transition: background-color 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ContactList__item:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.ContactList__item:hover,
+.ContactList__item:focus {
+  background-color: bgcPrimary;
+}
+
+.ContactList__name {
+  flex-basis: 55%;
+  margin-right: 5px;
+  font-size: 1.2rem;
+}
+
+.ContactList__phone {
+  flex-basis: 35%;
+  margin-right: 5px;
+  font-size: 1.2rem;
+}
+
+.ContactList__icon:hover,
+.ContactList__icon:focus {
+  fill: red;
+}

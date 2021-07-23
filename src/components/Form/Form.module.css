@@ -1,0 +1,47 @@
+@value colors: '../../colors.css';
+@value bgcPrimary, darkened, text, white from colors;
+
+.Form__wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Form__title {
+  margin-bottom: 10px;
+  color: #252b31;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.Form__btn {
+  width: 150px;
+  height: 40px;
+  padding: 5px;
+  border: 3px solid bgcPrimary;
+  border-radius: 8px;
+  outline: none;
+
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  background-color: darkened;
+  cursor: pointer;
+  overflow: hidden;
+
+  transition: transform 250ms linear;
+}
+
+.Form__btn:hover,
+.Form__btn:focus {
+  transform: scale(1.1);
+}

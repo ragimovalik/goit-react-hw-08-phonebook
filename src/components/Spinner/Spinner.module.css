@@ -1,0 +1,16 @@
+@value colors: '../../colors.css';
+@value text, darkened from colors;
+
+@keyframes Spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.Animated {
+  animation: Spin 1s linear infinite;
+  color: darkened;
+}
