@@ -1,25 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, Suspense } from 'react';
+import { Switch } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getCurrentUser } from './redux/auth/auth-operations';
+import { routes } from './routes';
+import Nav from './components/Nav/Nav';
+import NotFoundPage from './pages/NotFoundPage';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import PublicRoute from './components/PublicRoute/PublicRoute';
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
+  // const isLoggedIn = useSelector(getIsLoggedIn);
+
+  useEffect(() => {
+    dispatch(getCurrentUser());
+  }, []); //eslint-disable-line
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Nav />
+      <Suspense fallback={<p>...Loading</p>}>
+        <Switch>
+          {routes.map(
+            ({
+              exact,
+              path,
+              component: Component,
+              privateRoute,
+              title,
+              restricted,
+            }) =>
+              privateRoute ? (
+                <PrivateRoute
+                  key={title}
+                  path={path}
+                  component={Component}
+                  exact={exact}
+                  title={title}
+                  restricted={restricted}
+                />
+              ) : (
+                <PublicRoute
+                  key={title}
+                  path={path}
+                  component={Component}
+                  exact={exact}
+                  title={title}
+                  restricted={restricted}
+                />
+              ),
+          )}
+          <NotFoundPage />
+        </Switch>
+      </Suspense>
+    </>
   );
-}
+};
 
 export default App;
