@@ -3,7 +3,7 @@ import styles from './Nav.module.css';
 
 const AuthNav = () => {
   return (
-    <ul className={styles.Nav__links}>
+    <ul className={styles.Nav__auth}>
       <li key="LoginPage">
         <NavLink
           to="/login"

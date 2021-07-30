@@ -8,10 +8,12 @@
 
   width: 100%;
   min-height: 40px;
+  padding: 5px;
 
   background-color: lightened;
-  padding: 5px;
+  color: inherit;
   text-align: center;
+  font-weight: 500;
 
   border-bottom: 3px solid bgcPrimary;
 }
@@ -20,8 +22,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
 
-  width: 70%;
+@media screen and (max-width: 799px) {
+  .Nav {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .Nav {
+    width: 40%;
+  }
 }
 
 .Nav__links {
@@ -49,7 +61,8 @@
 }
 
 .Nav__item--active {
-  background-color: darkened;
-  color: white;
-  border-radius: 8px;
+  /* background-color: darkened; */
+  /* color: white; */
+  /* border-radius: 8px; */
+  border-bottom: 4px solid darkened;
 }
