@@ -6,10 +6,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  padding: 5px 0;
+  /* border-bottom: 3px solid bgcPrimary;
+  border-radius: 12px; */
+}
+
+.Wrapper__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Form__title {
-  margin-bottom: 10px;
+  margin: 0 10px 10px 0;
   color: #252b31;
 }
 
@@ -19,7 +29,7 @@
   justify-content: center;
   align-items: center;
 
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .Form__btn {
@@ -41,7 +51,30 @@
   transition: transform 250ms linear;
 }
 
+.Add__btn {
+  width: 60px;
+  height: 30px;
+  margin-bottom: 10px;
+  padding: 0.2rem;
+  border: 3px solid bgcPrimary;
+  border-radius: 8px;
+  outline: none;
+
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  background-color: darkened;
+  cursor: pointer;
+  overflow: hidden;
+
+  transition: transform 250ms linear;
+}
+
 .Form__btn:hover,
-.Form__btn:focus {
+.Form__btn:focus,
+.Add__btn:hover,
+.Add__btn:focus {
   transform: scale(1.1);
 }

@@ -1,8 +1,16 @@
+@value colors: '../../colors.css';
+@value bgcPrimary from colors;
+
 .Filter__wrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  padding: 10px 0;
+
+  border-top: 3px solid bgcPrimary;
+  border-radius: 12px;
 }
 
 .Filter__title {

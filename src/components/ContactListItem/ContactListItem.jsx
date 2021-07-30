@@ -3,7 +3,7 @@ import styles from './ContactListItem.module.css';
 import { MdDelete } from 'react-icons/md';
 import { IconContext } from 'react-icons';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/operations';
+import { deleteContact } from '../../redux/contacts/contacts-operations';
 
 const ContactListItem = ({ name, number, id }) => {
   const dispatch = useDispatch();
@@ -21,7 +21,11 @@ const ContactListItem = ({ name, number, id }) => {
           title: 'delete',
         }}
       >
-        <div onClick={() => dispatch(deleteContact(id))}>
+        <div
+          onClick={() => {
+            return dispatch(deleteContact(id));
+          }}
+        >
           <MdDelete className={styles.ContactList__icon} />
         </div>
       </IconContext.Provider>

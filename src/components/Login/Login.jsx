@@ -5,10 +5,12 @@ import * as Yup from 'yup';
 import { logIn } from '../../redux/auth/auth-operations';
 import FormikInput from '../FormikInput/FormikInput';
 import { useEffect } from 'react';
+import { useStyles } from './LoginStyles';
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
   const dispatch = useDispatch();
+  const classes = useStyles();
 
   const handleSubmit = (values, { onSubmitting, resetForm }) => {
     setLoginData(values);
@@ -39,17 +41,26 @@ const Login = () => {
       onSubmit={handleSubmit}
     >
       {formik => (
-        <Form>
-          <FormikInput name="email" label="Email:" type="email" />
-          <FormikInput name="password" label="Password:" type="password" />
-          <div>
-            <input
-              disabled={!formik.isValid || formik.isSubmitting}
-              type="submit"
-              value="submit"
-              name="submit"
-            />
-          </div>
+        <Form className={classes.Form__box}>
+          <FormikInput
+            name="email"
+            label="Email:"
+            type="email"
+            placeholder="test@test.com"
+          />
+          <FormikInput
+            name="password"
+            label="Password:"
+            type="password"
+            placeholder="*******"
+          />
+          <input
+            disabled={!formik.isValid || formik.isSubmitting}
+            type="submit"
+            value="submit"
+            name="submit"
+            className={classes.Form__submit}
+          />
         </Form>
       )}
     </Formik>

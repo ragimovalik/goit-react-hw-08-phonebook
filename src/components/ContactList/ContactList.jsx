@@ -1,18 +1,25 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   getError,
   getLoading,
   getFilteredContacts,
-} from '../../redux/selectors';
+} from '../../redux/contacts/contacts-selectors';
+import { getContacts } from '../../redux/contacts/contacts-operations';
 import ContactListItem from '../ContactListItem/ContactListItem';
 import Spinner from '../Spinner';
 import Notification from '../Notification/Notification';
 import styles from './ContactList.module.css';
 
 const ContactList = () => {
+  const dispatch = useDispatch();
   const error = useSelector(getError);
   const loading = useSelector(getLoading);
   const filteredContacts = useSelector(getFilteredContacts);
+
+  useEffect(() => {
+    dispatch(getContacts());
+  }, [dispatch]);
 
   return (
     <div className={styles.ContactList}>

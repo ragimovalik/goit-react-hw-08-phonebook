@@ -5,10 +5,12 @@ import * as Yup from 'yup';
 import { register } from '../../redux/auth/auth-operations';
 import FormikInput from '../FormikInput/FormikInput';
 import { useEffect } from 'react';
+import { useStyles } from './RegistrationStyles';
 
 const Registration = () => {
   const [registrationData, setRegistrationData] = useState({});
   const dispatch = useDispatch();
+  const classes = useStyles();
 
   const onSubmit = (values, { resetForm }) => {
     setRegistrationData(values);
@@ -22,7 +24,6 @@ const Registration = () => {
 
   return (
     <div>
-      <h4>Formik form</h4>
       <Formik
         initialValues={{
           name: '',
@@ -44,7 +45,7 @@ const Registration = () => {
         onSubmit={onSubmit}
       >
         {formik => (
-          <Form>
+          <Form className={classes.Form__box}>
             <FormikInput
               label="Name:"
               name="name"
@@ -62,20 +63,16 @@ const Registration = () => {
               label="Password:"
               name="password"
               type="password"
-              placeholder="******"
+              placeholder="*******"
             />
 
-            <div>
-              <span>Screen: </span>
-            </div>
-            <div>
-              <input
-                disabled={!formik.isValid || formik.isSubmitting}
-                type="submit"
-                value="submit"
-                name="submit"
-              />
-            </div>
+            <input
+              disabled={!formik.isValid || formik.isSubmitting}
+              type="submit"
+              value="submit"
+              name="submit"
+              className={classes.Form__submit}
+            />
           </Form>
         )}
       </Formik>

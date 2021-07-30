@@ -14,3 +14,13 @@
   animation: Spin 1s linear infinite;
   color: darkened;
 }
+
+.Spinner__wrapper {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  margin: 20px auto;
+
+  text-align: center;
+}

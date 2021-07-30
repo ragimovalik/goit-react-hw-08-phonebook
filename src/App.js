@@ -7,6 +7,7 @@ import Nav from './components/Nav/Nav';
 import NotFoundPage from './pages/NotFoundPage';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PublicRoute from './components/PublicRoute/PublicRoute';
+import Spinner from './components/Spinner';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const App = () => {
   return (
     <>
       <Nav />
-      <Suspense fallback={<p>...Loading</p>}>
+      <Suspense fallback={<Spinner size="5rem" />}>
         <Switch>
           {routes.map(
             ({
