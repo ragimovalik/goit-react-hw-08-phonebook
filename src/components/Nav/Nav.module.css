@@ -61,8 +61,5 @@
 }
 
 .Nav__item--active {
-  /* background-color: darkened; */
-  /* color: white; */
-  /* border-radius: 8px; */
   border-bottom: 4px solid darkened;
 }

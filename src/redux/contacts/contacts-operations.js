@@ -1,4 +1,5 @@
 import axios from 'axios';
+import toast from 'react-hot-toast';
 import * as actions from './contacts-actions';
 
 export const getContacts = () => async dispatch => {
@@ -8,6 +9,8 @@ export const getContacts = () => async dispatch => {
     const response = await axios.get('/contacts');
     dispatch(actions.getContactsSuccess(response.data));
   } catch (error) {
+    toast.error(error.message);
+
     dispatch(actions.getContactsError(error.message));
   }
 };
@@ -19,6 +22,8 @@ export const addContact = contact => async dispatch => {
     const response = await axios.post('/contacts', contact);
     dispatch(actions.addContactSuccess(response.data));
   } catch (error) {
+    toast.error(error.message);
+
     dispatch(actions.addContactError(error.message));
   }
 };
@@ -30,6 +35,8 @@ export const deleteContact = contactId => async dispatch => {
     await axios.delete(`/contacts/${contactId}`);
     dispatch(actions.deleteContactSuccess(contactId));
   } catch (error) {
+    toast.error(error.message);
+
     dispatch(actions.deleteContactError(error.message));
   }
 };

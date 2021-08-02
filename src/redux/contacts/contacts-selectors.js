@@ -1,6 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-// ===> Store design === {contacts: {items, filter, loading, error}}
+// === Store design ===
+// === {contacts: {items, filter, loading, error}} ===
 
 export const getContactsStore = state => state.contacts;
 

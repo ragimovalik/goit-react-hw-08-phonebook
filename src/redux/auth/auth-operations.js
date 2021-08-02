@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-hot-toast';
 import * as actions from './auth-actions';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
@@ -20,7 +21,11 @@ export const register = credentials => async dispatch => {
 
     token.set(response.data.token);
     dispatch(actions.registerSuccess(response.data));
+
+    toast.success('Your are joined to the Phonebook');
   } catch (error) {
+    toast.error(error.message);
+
     dispatch(actions.registerError(error.message));
   }
 };
@@ -33,7 +38,11 @@ export const logIn = credentials => async dispatch => {
 
     token.set(response.data.token);
     dispatch(actions.loginSuccess(response.data));
+
+    toast.success('Welcome! You are logged in');
   } catch (error) {
+    toast.error(error.message);
+
     dispatch(actions.loginError(error.message));
   }
 };
@@ -46,7 +55,11 @@ export const logOut = () => async dispatch => {
 
     token.unset();
     dispatch(actions.logoutSuccess());
+
+    toast.success('See you later :)');
   } catch (error) {
+    toast.error(error.message);
+
     dispatch(actions.logoutError(error.message));
   }
 };
@@ -69,6 +82,8 @@ export const getCurrentUser = () => async (dispatch, getState) => {
 
     dispatch(actions.getCurrentSuccess(response.data));
   } catch (error) {
+    toast.error(error.message);
+
     dispatch(actions.getCurrentError(error.message));
   }
 };

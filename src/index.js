@@ -8,11 +8,6 @@ import App from './App.js';
 import './index.css';
 import 'modern-normalize';
 
-// import { getContacts } from './redux/operations';
-// store.dispatch(getContacts());
-
-//loading={null} persistor={store.persistor}
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

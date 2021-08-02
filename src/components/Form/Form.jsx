@@ -1,31 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { toast } from 'react-hot-toast';
 import { MdAdd, MdRemove } from 'react-icons/md';
+import { IconContext } from 'react-icons/lib';
 import { addContact } from '../../redux/contacts/contacts-operations';
+import { getContacts } from '../../redux/contacts/contacts-selectors';
 import InputBox from '../InputBox/InputBox';
 import styles from './Form.module.css';
-import { getContacts } from '../../redux/contacts/contacts-selectors';
-import { IconContext } from 'react-icons/lib';
-
-/*
- <IconContext.Provider
-        value={{
-          color: 'inherit',
-          size: '1.2rem',
-          className: 'global-class-name',
-          title: 'delete',
-        }}
-      >
-        <div
-          onClick={() => {
-            console.log('delete button');
-            return dispatch(deleteContact(id));
-          }}
-        >
-          <MdDelete className={styles.ContactList__icon} />
-        </div>
-      </IconContext.Provider>
-*/
 
 const Form = () => {
   const [localState, setLocalState] = useState({ name: '', number: '' });
@@ -47,8 +28,8 @@ const Form = () => {
   };
 
   const contactsChecker = name => {
-    return items?.find(contact =>
-      contact.name.toLowerCase().includes(name.toLowerCase()),
+    return items?.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase(),
     );
   };
 
@@ -60,7 +41,7 @@ const Form = () => {
     const newContact = { name, number };
 
     contactsChecker(name)
-      ? alert(`${name} is already in contacts`)
+      ? toast(`${name} is already in contacts`)
       : dispatch(addContact(newContact));
 
     setDefault();

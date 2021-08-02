@@ -10,8 +10,10 @@
     "axios": "^0.21.1",
     "formik": "^2.2.9",
     "modern-normalize": "^1.1.0",
+    "netlify-cli": "^5.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hot-toast": "^2.1.0",
     "react-icons": "^4.2.0",
     "react-jss": "^10.7.1",
     "react-redux": "^7.2.4",
@@ -27,8 +29,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "netlify deploy -p",
-    "server": "json-server --watch db.json --port 3001 -d 500"
+    "deploy": "netlify deploy -p"
   },
   "eslintConfig": {
     "extends": [
@@ -50,7 +51,6 @@
   },
   "devDependencies": {
     "husky": "^4.3.8",
-    "json-server": "^0.16.3",
     "lint-staged": "^10.5.4",
     "prettier": "^2.3.2"
   }

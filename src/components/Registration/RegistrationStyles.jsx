@@ -34,5 +34,7 @@ export const useStyles = createUseStyles({
     '&:hover, &:focus': {
       transform: 'scale(1.02)',
     },
+
+    '&:disabled': { opacity: 0.3 },
   },
 });
